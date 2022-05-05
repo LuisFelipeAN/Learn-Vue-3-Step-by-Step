@@ -2,10 +2,10 @@ import List from './List.js';
 import AppButton from './AppButton.js';
 export default{
     template:`
-        <div class="flex bg-gray-100">
-            <input type="text" v-model="newAssingment">
-            <custom-button @click="addAssingment">Add</custom-button>
-        </div>
+        <form @submit.prevent="addAssingment">
+            <input type="text" v-model="newAssingment" class="border">
+            <button type="submit" class="bg-blue-200 hover:bg-blue-400" >Add</button>
+        </form>
         <list title="In Progress" :items="assingments" evaluatedProp="complete" :expectedValue="false" @remove-item="removeItem"/>
         <list title="Completed" :items="assingments" evaluatedProp="complete" :expectedValue="true" @remove-item="removeItem"/>
     `,
