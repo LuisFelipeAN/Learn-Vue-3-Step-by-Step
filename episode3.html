@@ -9,50 +9,12 @@
     
     <body class="h-full grid place-items-center">
         <div id="app">
-            <section  v-show="inProgressAssigments.length>0">
-                <h2 class="font-bold mb-2">In Progress</h2>
-                <ul>
-                    <li v-for="assingment in inProgressAssigments" :key="assingment.id"> 
-                        <label>
-                            {{assingment.name}}
-                            <input type="checkbox" v-model="assingment.complete"></li>
-                        </label>
-                </ul>
-            </section>
-            <section class="mt-8" v-show="completedAssigments.length>0">
-                <h2 class="font-bold mb-2">Completed</h2>
-                <ul>
-                    <li v-for="assingment in completedAssigments" :key="assingment.id"> 
-                        <label>
-                            {{assingment.name}}
-                            <input type="checkbox" v-model="assingment.complete"></li>
-                        </label>
-                </ul>
-            </section>
+            
          </div>
          
         <script>
             let app = {
-                data(){
-                   return {
-                    assingments: [
-                            {name: 'Assingment 1', complete:false, id:1},
-                            {name: 'Assingment 2', complete:false, id:2},
-                            {name: 'Assingment 3', complete:false, id:3},
-                            {name: 'Assingment 4', complete:false, id:4},
-                            {name: 'Assingment 5', complete:false, id:5},
-                            {name: 'Assingment 6', complete:false, id:6}
-                        ]
-                    }
-               },
-               computed:{
-                    completedAssigments(){
-                        return this.assingments.filter(a =>a.complete );
-                    },
-                    inProgressAssigments(){
-                        return this.assingments.filter(a =>!a.complete );
-                    }
-               }
+               
             }
             Vue.createApp(app).mount('#app');
         </script>

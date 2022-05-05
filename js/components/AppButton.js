@@ -8,7 +8,7 @@ export default{
             'bg-purple-200 hover:bg-purple-400' : type=='secondary',
             'is-loading': processing
 
-        }" :disabled="processing" ><slot/></button>
+        }" :disabled="processing" @click="this.$emit('click')"><slot/></button>
     `,
     data(){
        return {}

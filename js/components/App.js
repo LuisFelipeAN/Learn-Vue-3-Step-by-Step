@@ -1,7 +1,12 @@
-import AppButton from './AppButton.js';
-
+import Assingments from "./Assingments.js";
 export default{
+    template:`
+       <div>
+        <assingments/>
+       </div>
+    `,
     components:{
-        'app-button':AppButton
-    }
+        'assingments':Assingments,
+    },
+
 } 
