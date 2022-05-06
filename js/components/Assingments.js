@@ -1,17 +1,14 @@
 import List from './List.js';
-import AppButton from './AppButton.js';
+import AssingmentCreate from './AssingmentCreate.js';
 export default{
     template:`
-        <form @submit.prevent="addAssingment">
-            <input type="text" v-model="newAssingment" class="border">
-            <button type="submit" class="bg-blue-200 hover:bg-blue-400" >Add</button>
-        </form>
+        <assingment-create @add="addAssingment"/>
         <list title="In Progress" :items="assingments" evaluatedProp="complete" :expectedValue="false" @remove-item="removeItem"/>
         <list title="Completed" :items="assingments" evaluatedProp="complete" :expectedValue="true" @remove-item="removeItem"/>
     `,
     components:{
         'list':List,
-        'custom-button':AppButton
+        'assingment-create':AssingmentCreate
     },
 
     data(){
@@ -24,7 +21,6 @@ export default{
                  {name: 'Assingment 5', complete:false, id:5},
                  {name: 'Assingment 6', complete:false, id:6}
              ],
-            newAssingment:'',
             cont:100
          }
          r
@@ -38,13 +34,11 @@ export default{
          }
     },
     methods:{
-        addAssingment(){
-            if(this.newAssingment!=''){
-                this.assingments.push({name:  this.newAssingment, complete:false, id:this.cont});
-                this.cont++;
-                this.newAssingment='';
-            }
-            
+        addAssingment(a){
+            a.id= this.cont;
+            this.assingments.push(a);
+            this.cont++;
+    
         },
         removeItem(i){
             this.assingments=this.assingments.filter(a=>a.id!=i.id);
